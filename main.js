@@ -3,19 +3,7 @@
     
     
     let url = 'https://665736849f970b3b36c864e7.mockapi.io/login1';
-
-    // let divlogin = document.getElementById('login-container');
-    // let usernamelogin = document.getElementById('inputUserName').value;
-    // let passwordlogin = document.getElementById('inputPassWord').value;
-   
-
     let divregister = document.getElementById('Register-form');
-    // let usernameSignUp = document.getElementById('inputUserName1').value;
-    // let emailSignUp = document.getElementById('inputEmail').value;
-    // let passwordSignUp = document.getElementById('inputPassWord1').value;
-    let btnSignUp = document.getElementById('btnSignUp');
-
-    // let usernameProfile = document.getElementById('UserNameProfile');
     let btnLogout = document.getElementById('btnLogout');
 
 
@@ -25,41 +13,47 @@
     /*---------------------------Step1-------------------------------------*/
     let btnlogin = document.querySelector('#btnLogin'); 
     console.log(btnlogin);
-    btnlogin.addEventListener('click', () => {
-        let usernamelogin = document.getElementById('inputUserName').value;
-        let passwordlogin = document.getElementById('inputPassWord').value;
-        login(usernamelogin, passwordlogin);
-   
-    });
 
 
-
-    async function login(usernamelogin, passwordlogin) {
+    async function login() {
+        let usernamelogin = document.getElementById('inputUserName');
+        let passwordlogin = document.getElementById('inputPassWord');
         let url1 = 'https://665736849f970b3b36c864e7.mockapi.io/login1';
-        let response = await fetch(`${url1}?userName=${usernamelogin}&password=${passwordlogin}`);
+        let response = await fetch(url1);
+  
         let data = await response.json();
-
-        localStorage.setItem('userName', data.userName);
-        window.location.href = "./pofile.html";
-
+        let testing =false;
+        data.forEach(element => {
+            console.log(element.userName);
+            if(element.userName === usernamelogin.value && element.password ===  passwordlogin.value){
+                localStorage.setItem('userName', element.userName);
+                window.location.href = "pofile.html";
+                console.log("hello")
+                testing = true;
+            }   
+    })
+    if(!testing ) {
+        // window.location.href = "register.html";
+        alert('incorrect data')
     }
+}
 
 
 
 
 
     /*---------------------------Step2-------------------------------------*/
+    
+    let btnSignUp = document.getElementById('btnSignUp');
 
-    btnSignUp.addEventListener('click', function() {
+ 
+
+    async function register() {
         let usernameSignUp = document.getElementById('inputUserName1');
         let emailSignUp = document.getElementById('inputEmail');
         let passwordSignUp = document.getElementById('inputPassWord1');
-        register(usernameSignUp, emailSignUp, passwordSignUp);
-    });
-
-    async function register(usernameSignUp, emailSignUp, passwordSignUp) {
         let url2 = 'https://665736849f970b3b36c864e7.mockapi.io/login1';
-        let response = await fetch(`${url2}`, {
+        let response = await fetch(url2, {
             method: 'POST',
             body: JSON.stringify({
                 userName: usernameSignUp.value,
@@ -72,6 +66,7 @@
         });
 
         let data = await response.json();
+        console.log(data);
         localStorage.setItem('userName', data.userName);
         window.location.href = "./pofile.html";
     

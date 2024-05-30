@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+   <style>
+
+
+.body ,h1{
+            text-align: center;
+             background-color: rgb(255, 255, 255);
+             border-radius: 10px;
+             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+             padding: 20px;
+             margin: 20px;
+             border: 1px solid rgb(255, 255, 255);
+             border-radius: 10px;
+             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+ 
+        }
+
+
+    .login-container{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         width: 93%;
+         height: 300px;
+         background-color: rgb(255, 255, 255);
+         border-radius: 10px;
+         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+         padding: 20px;
+         margin: 20px;
+         border: 1px solid rgb(255, 255, 255);
+         border-radius: 10px;
+         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+
+
+    #div1 , #div2 {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #btnlogin{
+      
+        background-color: rgb(8, 207, 140);
+        width: 130px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+
+   </style>
+
+</head>
+<body>
+
+
+    <h1>LogIn</h1>
+    
+    <div class="login-container">
+     
+        <div id="div1">
+        <label for="inputUserName"> UserName:</label>
+        <input type="text" placeholder="UserName" id="inputUserName" required>
+        </div>
+
+        <div id="div2">
+            <label for="inputPassWord"> PassWord:</label>
+            <input type="password" placeholder="PassWord" id="inputPassWord" required>
+        </div>
+
+        <button id="btnlogin" >LogIn</button>
+
+    </div>
+
+    <script src="./main.js" ></script>
+
+</body>
+</html>
